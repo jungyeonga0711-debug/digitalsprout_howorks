@@ -26,7 +26,23 @@ Copy-Item config\settings.example.yml config\settings.yml
 
 ## Windows 직원용 실행
 
-직원 PC에는 Git을 설치하지 않아도 됩니다.
+직원에게는 GitHub ZIP이 아니라 `Create_Employee_Zip.bat`로 만든 직원 배포용 ZIP을 전달하는 것을 권장합니다.
+직원 배포용 ZIP에는 실제 `config/settings.yml`과 `client_secret.json`이 포함되므로 압축 해제 후 바로 실행할 수 있습니다.
+
+관리자 PC에서 직원 배포용 ZIP 만들기:
+
+1. 프로젝트 폴더에 `client_secret.json`과 `config/settings.yml`이 있는지 확인합니다.
+2. `Create_Employee_Zip.bat`를 더블클릭합니다.
+3. `dist\digitalsprout_howorks_employee.zip` 파일을 직원에게 전달합니다.
+
+직원 PC에서 실행:
+
+1. 전달받은 ZIP 파일을 원하는 위치에 압축 해제합니다.
+2. 압축 해제한 폴더 안의 `Hiworks_Start.bat` 파일을 더블클릭합니다.
+
+GitHub에서 직접 ZIP을 받을 수도 있지만, 그 경우 보안상 제외된 `client_secret.json`과 실제 `config/settings.yml`이 포함되지 않습니다.
+
+GitHub ZIP을 직접 받는 경우:
 
 1. GitHub 저장소 페이지를 엽니다.
    - https://github.com/jungyeonga0711-debug/digitalsprout_howorks
@@ -41,7 +57,7 @@ Copy-Item config\settings.example.yml config\settings.yml
 - Python이 설치되어 있지 않으면 Python 다운로드 페이지를 자동으로 열어줍니다.
 - `config/settings.yml`이 없으면 예시 파일을 복사한 뒤 메모장으로 열어줍니다.
 - `config/settings.yml`에 `YOUR_SPREADSHEET_ID` 같은 예시값이 남아 있으면 실제 구글시트 주소를 넣으라고 안내합니다.
-- `client_secret.json`이 없으면 프로젝트 폴더를 열어주고 파일을 넣을 때까지 기다립니다.
+- 직원 배포용 ZIP에는 `client_secret.json`이 포함되도록 만들 수 있습니다.
 - 실행 후 브라우저에서 `http://127.0.0.1:8765/` 컨트롤러가 열립니다.
 - PowerShell 창을 닫으면 컨트롤러도 종료됩니다.
 
