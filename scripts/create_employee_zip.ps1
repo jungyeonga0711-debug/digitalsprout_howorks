@@ -10,13 +10,27 @@ $PackageDir = Join-Path $DistDir "digitalsprout_howorks_employee"
 $ZipPath = Join-Path $DistDir "digitalsprout_howorks_employee.zip"
 
 Write-Host "[2026 D-Sak] Creating employee ZIP package" -ForegroundColor Green
+Write-Host "This file is for the admin PC only."
+Write-Host "Employees should not run this file. Employees should run Hiworks_Start.bat from the employee ZIP."
 
 if (-not (Test-Path "client_secret.json")) {
-    throw "client_secret.json is missing. Put it in the project folder first."
+    Write-Host ""
+    Write-Host "client_secret.json is missing." -ForegroundColor Red
+    Write-Host "You are probably running this from a GitHub source ZIP."
+    Write-Host "GitHub source ZIP does not include client_secret.json or real config/settings.yml."
+    Write-Host ""
+    Write-Host "Correct flow:"
+    Write-Host "1. Run Admin_Create_Employee_Zip.bat on the admin/original PC."
+    Write-Host "2. Share dist\digitalsprout_howorks_employee.zip with employees."
+    Write-Host "3. Employees unzip that file and run Hiworks_Start.bat."
+    throw "Admin package cannot be created without client_secret.json."
 }
 
 if (-not (Test-Path "config\settings.yml")) {
-    throw "config\settings.yml is missing. Run Hiworks_Start.bat once and save the settings first."
+    Write-Host ""
+    Write-Host "config/settings.yml is missing." -ForegroundColor Red
+    Write-Host "Run Hiworks_Start.bat once on the admin/original PC and save the settings first."
+    throw "Admin package cannot be created without config/settings.yml."
 }
 
 if (Test-Path $PackageDir) {

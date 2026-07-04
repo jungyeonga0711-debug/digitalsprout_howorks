@@ -26,13 +26,13 @@ Copy-Item config\settings.example.yml config\settings.yml
 
 ## Windows 직원용 실행
 
-직원에게는 GitHub ZIP이 아니라 `Create_Employee_Zip.bat`로 만든 직원 배포용 ZIP을 전달하는 것을 권장합니다.
+직원에게는 GitHub ZIP이 아니라 `Admin_Create_Employee_Zip.bat`로 만든 직원 배포용 ZIP을 전달하는 것을 권장합니다.
 직원 배포용 ZIP에는 실제 `config/settings.yml`과 `client_secret.json`이 포함되므로 압축 해제 후 바로 실행할 수 있습니다.
 
 관리자 PC에서 직원 배포용 ZIP 만들기:
 
 1. 프로젝트 폴더에 `client_secret.json`과 `config/settings.yml`이 있는지 확인합니다.
-2. `Create_Employee_Zip.bat`를 더블클릭합니다.
+2. `Admin_Create_Employee_Zip.bat`를 더블클릭합니다.
 3. `dist\digitalsprout_howorks_employee.zip` 파일을 직원에게 전달합니다.
 
 직원 PC에서 실행:
