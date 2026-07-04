@@ -37,7 +37,13 @@ function Invoke-SystemPython {
 
     $python = Get-Command python -ErrorAction SilentlyContinue
     if (-not $python) {
-        throw "Python is not installed. Install Python 3.11, then run this file again."
+        Write-Step "Python 3.11 is required"
+        Write-Host "Python is not installed on this computer."
+        Write-Host "The Python download page will open now."
+        Write-Host "Install Python 3.11 or newer, and check 'Add python.exe to PATH' during setup."
+        Start-Process "https://www.python.org/downloads/windows/"
+        Pause-ForUser "After installing Python, close and run Hiworks_Start.bat again. Press Enter to exit"
+        exit 1
     }
 
     & python @Arguments
