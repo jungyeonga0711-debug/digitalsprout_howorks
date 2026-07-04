@@ -1,5 +1,5 @@
 spreadsheet:
-  url: "https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/edit"
+  url: "https://docs.google.com/spreadsheets/d/1atFokExn13O7IMsFIwHjnZGJ3v1MNudoibtt4zrVTio/edit"
   summary_sheet_name: "하이웍스_종합"
   source_sheets:
     - "A-장비시설임차"
@@ -26,7 +26,7 @@ budget:
   total: 240000000
 
 hiworks:
-  login_url: "https://YOUR_COMPANY.hiworks.com/"
+  login_url: "https://approval.office.hiworks.com/"
   username_env: "HIWORKS_ID"
   password_env: "HIWORKS_PASSWORD"
   headless: false
@@ -41,7 +41,7 @@ hiworks:
     login_username: ""
     login_password: ""
     login_submit: ""
-    new_approval_url: ""
+    new_approval_url: "https://approval.office.hiworks.com/l-line.co.kr/approval/document/write"
     form_select: "select[name='approval_form_no']"
     procurement_form_label: "지출품의(교육사업부)"
     execution_form_label: "지출결의(교육사업부)"
