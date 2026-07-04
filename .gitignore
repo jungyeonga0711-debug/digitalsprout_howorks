@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+token.json
+client_secret.json
+service-account*.json
+config/settings.yml
+artifacts/

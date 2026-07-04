@@ -1,0 +1,87 @@
+spreadsheet:
+  url: "https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/edit"
+  summary_sheet_name: "하이웍스_종합"
+  source_sheets:
+    - "A-장비시설임차"
+    - "B-재료구입비"
+    - "C-인쇄복사제작"
+    - "D-외부전문가"
+    - "E-일용직활용비"
+    - "F-회의비"
+    - "G-제세공과공공요금"
+    - "H-우편요금택배비"
+    - "I-기타경비"
+    - "J-내부인건비"
+    - "K-회의비"
+    - "L-출장비"
+    - "M-인쇄복사제작"
+    - "N-제세공과공공요금"
+    - "O-사무용품비"
+    - "P-간접비(일반관리비)"
+    - "Q-부가가치세"
+  read_range: "A1:AG1000"
+  data_start_row: 22
+
+budget:
+  total: 240000000
+
+hiworks:
+  login_url: "https://YOUR_COMPANY.hiworks.com/"
+  username_env: "HIWORKS_ID"
+  password_env: "HIWORKS_PASSWORD"
+  headless: false
+  slow_mo_ms: 80
+  user_data_dir: "artifacts/browser-profile"
+  artifacts_dir: "artifacts"
+  body_mode: "prepend"
+  after_submit_wait_ms: 8000
+  keep_browser_open_after_submit: true
+
+  selectors:
+    login_username: ""
+    login_password: ""
+    login_submit: ""
+    new_approval_url: ""
+    form_select: "select[name='approval_form_no']"
+    procurement_form_label: "지출품의(교육사업부)"
+    execution_form_label: "지출결의(교육사업부)"
+    travel_request_form_label: "출장신청서(신규)"
+    travel_report_form_label: "출장보고서"
+    title_input: ""
+    body_input: ""
+    body_source_button: "button[name='source']"
+    body_source_textarea: ""
+    body_frame: "iframe.se-contents-edit"
+    body_editable: "body"
+    reference_input: ""
+    submit_button: "a:has-text('기안하기')"
+    submit_confirm_button: ""
+
+  references: []
+
+  templates:
+    procurement_title: "[{sheet_code}] {vendor} 품의 ({amount})"
+    execution_title: "[{sheet_code}] {vendor} 집행 ({amount})"
+    procurement_body: |
+      [품의]
+      비목: {sheet_name}
+      기안일자: {date}
+      거래처: {vendor}
+      금액: {amount}
+      코드: {code}
+      번호: {number}
+      증빙번호: {evidence}
+      비고: {note}
+    execution_body: |
+      [집행]
+      비목: {sheet_name}
+      기안일자: {date}
+      거래처: {vendor}
+      공급가액: {supply_amount}
+      부가세: {vat}
+      합계금액: {amount}
+      사용내역: {usage}
+      결제: {payment_method}
+      코드: {code}
+      번호: {number}
+      증빙번호: {evidence}
