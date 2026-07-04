@@ -24,6 +24,16 @@ python -m playwright install chromium
 Copy-Item config\settings.example.yml config\settings.yml
 ```
 
+## Windows 직원용 실행
+
+Windows에서는 `Hiworks_Start.bat` 파일을 더블클릭하면 PowerShell 창이 자동으로 열리고 컨트롤러가 실행됩니다.
+
+- 처음 실행이면 `.venv` 생성, 패키지 설치, Playwright Chromium 설치를 자동으로 진행합니다.
+- `config/settings.yml`이 없으면 예시 파일을 복사한 뒤 메모장으로 열어줍니다.
+- `client_secret.json`이 없으면 프로젝트 폴더를 열어주고 파일을 넣을 때까지 기다립니다.
+- 실행 후 브라우저에서 `http://127.0.0.1:8765/` 컨트롤러가 열립니다.
+- PowerShell 창을 닫으면 컨트롤러도 종료됩니다.
+
 ## Google Sheets 인증
 
 두 방법 중 하나를 사용합니다.
