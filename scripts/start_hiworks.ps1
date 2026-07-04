@@ -98,6 +98,16 @@ if (-not (Test-Path $SettingsPath)) {
     Pause-ForUser "After saving config/settings.yml, press Enter"
 }
 
+$SettingsText = Get-Content -Raw $SettingsPath
+if ($SettingsText -match "YOUR_SPREADSHEET_ID|YOUR_COMPANY") {
+    Write-Step "config/settings.yml needs real company settings"
+    Write-Host "The current config still contains example placeholders."
+    Write-Host "Replace YOUR_SPREADSHEET_ID with the real Google Sheets URL or sheet ID."
+    Write-Host "Also replace YOUR_COMPANY with the real Hiworks company address if needed."
+    Start-Process notepad.exe $SettingsPath
+    Pause-ForUser "After saving config/settings.yml, press Enter"
+}
+
 if (-not (Test-Path $ClientSecretPath)) {
     Write-Step "Google client_secret.json is required"
     Write-Host "Place client_secret.json in this folder:"

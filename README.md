@@ -40,6 +40,7 @@ Copy-Item config\settings.example.yml config\settings.yml
 - 처음 실행이면 `.venv` 생성, 패키지 설치, Playwright Chromium 설치를 자동으로 진행합니다.
 - Python이 설치되어 있지 않으면 Python 다운로드 페이지를 자동으로 열어줍니다.
 - `config/settings.yml`이 없으면 예시 파일을 복사한 뒤 메모장으로 열어줍니다.
+- `config/settings.yml`에 `YOUR_SPREADSHEET_ID` 같은 예시값이 남아 있으면 실제 구글시트 주소를 넣으라고 안내합니다.
 - `client_secret.json`이 없으면 프로젝트 폴더를 열어주고 파일을 넣을 때까지 기다립니다.
 - 실행 후 브라우저에서 `http://127.0.0.1:8765/` 컨트롤러가 열립니다.
 - PowerShell 창을 닫으면 컨트롤러도 종료됩니다.
